@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI for Earth Workshop 2025 — Diễn giả</title>
+  <meta name="description" content="Trang giới thiệu diễn giả (tĩnh, 1 file)">
+  <style>
+    :root{
+      --bg:#0b0f1a;          /* nền */
+      --panel:#10182a;       /* khối */
+      --muted:#9bb0d1;       /* chữ phụ */
+      --text:#e7eefc;        /* chữ chính */
+      --brand:#5aa9ff;       /* màu điểm nhấn */
+      --brand-2:#7ef0ff;     /* màu loang nhẹ */
+      --accent:#ffd166;      /* tag/schedule */
+      --ok:#2dd4bf;          /* nút chính */
+      --danger:#ff6b6b;      /* highlight */
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:radial-gradient(1200px 800px at 10% -10%,rgba(90,169,255,.15),transparent 60%),radial-gradient(1000px 700px at 120% 0%,rgba(126,240,255,.1),transparent 60%),var(--bg);color:var(--text)}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:32px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(16,24,42,.9),rgba(16,24,42,.6));box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;inset:-2px;pointer-events:none;background:radial-gradient(500px 180px at 20% 0%,rgba(90,169,255,.25),transparent 60%),radial-gradient(600px 200px at 60% 100%,rgba(126,240,255,.18),transparent 60%)}
+    .title{font-size:clamp(28px,3.4vw,44px);line-height:1.15;margin:0 0 8px}
+    .subtitle{margin:0 0 18px;color:var(--muted)}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+    .chip{padding:6px 10px;border-radius:999px;background:rgba(90,169,255,.12);border:1px solid rgba(90,169,255,.25);color:#cfe6ff;font-size:13px}
+    .cta{display:flex;gap:12px;margin-top:18px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid transparent;cursor:pointer;background:var(--ok);color:#08262a;font-weight:600;box-shadow:var(--shadow)}
+    .btn.secondary{background:transparent;color:var(--text);border-color:rgba(255,255,255,.18)}
+    .hero-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:18px 16px;border-radius:16px}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+
+    /* Speakers */
+    .section{margin:36px 0}
+    .section h2{font-size:clamp(22px,2.4vw,30px);margin:0 0 14px}
+    .card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .card .photo{aspect-ratio:4/3;background:#0a1426;position:relative;overflow:hidden}
+    .card .photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05)}
+    .card .body{padding:14px 16px}
+    .role{font-size:13px;color:var(--muted)}
+    .name{font-size:18px;font-weight:700;margin:2px 0 6px}
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+    .tag{font-size:12px;color:#0a1726;background:var(--accent);padding:4px 8px;border-radius:999px}
+    .social{display:flex;gap:10px;margin-top:10px}
+    .social a{display:inline-flex;padding:8px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+
+    /* Schedule */
+    .timeline{position:relative;padding-left:26px}
+    .timeline:before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--brand),transparent)}
+    .t{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:10px 12px;margin:10px 0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+    .t .time{font-weight:700;color:#d4e7ff}
+    .t .what{display:flex;flex-direction:column}
+    .t .what .talk{font-weight:700}
+    .t .who{color:var(--muted)}
+
+    /* Simple modal via :target */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:24px}
+    .modal:target{display:flex}
+    .modal .sheet{max-width:760px;width:100%;background:var(--panel);border:1px solid rgba(255,255,255,.1);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .sheet .head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .sheet .content{padding:16px}
+    .close{display:inline-flex;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+
+    /* Footer */
+    footer{margin:36px 0 10px;color:var(--muted);text-align:center}
+    .note{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <div>
+        <h1 class="title">AI for Earth Workshop 2025</h1>
+        <p class="subtitle">Giới thiệu diễn giả, lịch trình & thông tin đăng ký cho workshop 1 ngày về AI ứng dụng trong khí tượng & môi trường.</p>
+        <div class="chips">
+          <span class="chip">Hà Nội — 22/10/2025</span>
+          <span class="chip">Hybrid (Onsite + Online)</span>
+          <span class="chip">Ngôn ngữ: VI + EN</span>
+        </div>
+        <div class="cta">
+          <a class="btn" href="#register">Đăng ký ngay</a>
+          <a class="btn secondary" href="#speakers">Xem diễn giả</a>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="hero-card">
+          <strong>Thông tin nhanh</strong>
+          <ul>
+            <li>3 keynote + 6 session</li>
+            <li>Poster & demo corner</li>
+            <li>Networking cuối ngày</li>
+          </ul>
+        </div>
+        <div class="hero-card">
+          <strong>Đối tượng</strong>
+          <ul>
+            <li>Nhà nghiên cứu, học viên, kỹ sư ML</li>
+            <li>Doanh nghiệp AI/WeatherTech</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- SPEAKERS -->
+    <section id="speakers" class="section">
+      <h2>Diễn giả</h2>
+      <div class="grid cols-3">
+        <!-- Speaker 1: Duc-Tan Tran -->
+        <article class="card">
+          <div class="photo">
+            <img src="assets/imgs/_PHE0689.JPG" alt="Ảnh Duc‑Tan Tran">
+          </div>
+          <div class="body">
+            <div class="role">Keynote • Phenikaa University</div>
+            <div class="name">Prof. Duc‑Tan Tran</div>
+            <p class="note">Professor & Dean, Faculty of Electrical and Electronic Engineering, Phenikaa University. Former Associate Professor, VNU-UET.</p>
+            <div class="tags">
+              <span class="tag">Signal Processing</span>
+              <span class="tag">Information Theory</span>
+              <span class="tag">Multimedia</span>
+            </div>
+            <div class="social">
+              <a href="#modal-tan" title="Xem tiểu sử">🔎 Bio</a>
+              <a href="mailto:tan@example.edu">✉️ Email</a>
+              <a href="https://scholar.google.com" target="_blank" rel="noopener">🎓 Scholar</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Speaker 2: Placeholder (sửa nội dung này) -->
+        <article class="card">
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop" alt="Ảnh Speaker 2">
+          </div>
+          <div class="body">
+            <div class="role">Invited Talk • Tổ chức Y</div>
+            <div class="name">Dr. Speaker Two</div>
+            <p class="note">Mô tả ngắn 1–2 câu về chuyên môn và mối quan tâm nghiên cứu / ứng dụng.</p>
+            <div class="tags">
+              <span class="tag">Nowcasting</span>
+              <span class="tag">Data Fusion</span>
+            </div>
+            <div class="social">
+              <a href="#modal-s2">🔎 Bio</a>
+              <a href="mailto:speaker.two@example.org">✉️ Email</a>
+              <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Speaker 3: Placeholder (sửa nội dung này) -->
+        <article class="card">
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1544005314-9e7f4b36c55e?q=80&w=1200&auto=format&fit=crop" alt="Ảnh Speaker 3">
+          </div>
+          <div class="body">
+            <div class="role">Panel • Company Z</div>
+            <div class="name">Ms. Speaker Three</div>
+            <p class="note">Tập trung vào MLOps/Reproducibility & triển khai thời gian thực quy mô lớn.</p>
+            <div class="tags">
+              <span class="tag">MLOps</span>
+              <span class="tag">Realtime</span>
+            </div>
+            <div class="social">
+              <a href="#modal-s3">🔎 Bio</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener">in</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SCHEDULE (giữ mẫu) -->
+    <section id="schedule" class="section">
+      <h2>Lịch trình</h2>
+      <div class="timeline">
+        <div class="t"><div class="time">08:30–09:00</div><div class="what"><div class="talk">Đăng ký & Chào mừng</div><div class="who">BTC Workshop</div></div></div>
+        <div class="t"><div class="time">09:00–09:45</div><div class="what"><div class="talk">Keynote: Chủ đề chính</div><div class="who">Prof. Duc‑Tan Tran</div></div></div>
+        <div class="t"><div class="time">10:00–10:30</div><div class="what"><div class="talk">Talk mời</div><div class="who">Dr. Speaker Two</div></div></div>
+        <div class="t"><div class="time">10:45–11:30</div><div class="what"><div class="talk">Panel thảo luận</div><div class="who">Ms. Speaker Three + Khách mời</div></div></div>
+        <div class="t"><div class="time">13:30–16:30</div><div class="what"><div class="talk">Poster/Demo + Tutorial</div><div class="who">Tất cả</div></div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT / REGISTER -->
+    <section id="about" class="section grid cols-2">
+      <div class="card"><div class="body">
+        <h3>Giới thiệu</h3>
+        <p>Mục tiêu: kết nối cộng đồng nghiên cứu & công nghiệp, chia sẻ kết quả mới về nhận dạng bão, nowcasting, và hệ thống triển khai.</p>
+        <ul>
+          <li>Chủ đề: TC detection/classification, nowcasting, data assimilation, MLOps.</li>
+          <li>Định dạng: Keynote, Invited, Regular talks, Poster & Demo.</li>
+        </ul>
+      </div></div>
+      <div class="card" id="register"><div class="body">
+        <h3>Đăng ký</h3>
+        <p>Điền form đăng ký, BTC phản hồi trong 3 ngày làm việc.</p>
+        <p><a class="btn" href="#">Mở form đăng ký</a></p>
+        <p class="note">Liên hệ: <a href="mailto:workshop@ai4earth.org">workshop@ai4earth.org</a></p>
+      </div></div>
+    </section>
+
+    <footer>
+      © 2025 AI for Earth Workshop • <a href="#">Chính sách</a> • <a href="#">Liên hệ</a>
+    </footer>
+  </div>
+
+  <!-- MODALS: BIO CHI TIẾT -->
+  <div class="modal" id="modal-tan">
+    <div class="sheet">
+      <div class="head"><strong>Prof. Duc‑Tan Tran — Tiểu sử</strong><a class="close" href="#speakers">Đóng ✕</a></div>
+      <div class="content">
+        <p><strong>Duc‑Tan Tran</strong> is currently a <strong>Professor and Dean</strong> at the Faculty of Electrical and Electronic Engineering, <strong>Phenikaa University</strong>. Prior to joining Phenikaa University, he was an <strong>Associate Professor</strong> at the Faculty of Electronics and Telecommunication, <strong>VNU University of Engineering and Technology (VNU‑UET)</strong>, and served as <strong>Vice Dean</strong> from <em>Aug 2016 – May 2019</em>.</p>
+        <p>He has authored <strong>150+ research papers</strong> and received multiple distinctions, including:</p>
+        <ul>
+          <li><em>Best Paper Award</em> at the 9th International Conference on Multimedia and Ubiquitous Engineering (<strong>MUE‑2015</strong>);</li>
+          <li><em>Best Paper Award</em> at the International Conference on Green and Human Information Technology (<strong>ICGHIT‑2015</strong>);</li>
+          <li><em>Excellent Young Researcher</em> (2008) by <strong>Vietnam National University, Hanoi</strong>;</li>
+          <li>Third prize in the <strong>"Vietnamese Talents"</strong> contest.</li>
+        </ul>
+        <p><strong>Research interests</strong>: representation, processing, analysis, and communication of information embedded in signals and datasets.</p>
+        <p>Prof. Tran actively serves the community as <strong>TPC Co‑chair</strong>, <strong>technical program committee member</strong>, <strong>track chair</strong>, <strong>session chair</strong>, and <strong>reviewer</strong> for various international conferences and journals.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-s2">
+    <div class="sheet">
+      <div class="head"><strong>Dr. Speaker Two — Tiểu sử</strong><a class="close" href="#speakers">Đóng ✕</a></div>
+      <div class="content">
+        <p>⚠️ Ghi nội dung thật của diễn giả 2 tại đây: chức danh, cơ quan, thành tựu chính, hướng nghiên cứu/ứng dụng và liên kết công bố.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-s3">
+    <div class="sheet">
+      <div class="head"><strong>Ms. Speaker Three — Tiểu sử</strong><a class="close" href="#speakers">Đóng ✕</a></div>
+      <div class="content">
+        <p>⚠️ Ghi nội dung thật của diễn giả 3 tại đây: trọng tâm MLOps, hạ tầng realtime, các dự án tiêu biểu và liên hệ.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
