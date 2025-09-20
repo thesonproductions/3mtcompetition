@@ -1,15 +1,47 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI for Earth Workshop 2025 — Diễn giả</title>
   <meta name="description" content="Trang giới thiệu diễn giả (tĩnh, 1 file)">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/sponsors.css">
+  <link rel="stylesheet" href="assets/css/another.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- <link rel="stylesheet" href="vendor/bootstrap-5.3.8-dist/css/bootstrap.min.css"> -->
 </head>
 <body>
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Đổi giao diện" title="Đổi giao diện">
+
+    <svg class="icon sun" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 4a1 1 0 0 0 1-1V1h-2v2a1 1 0 0 0 1 1Zm0 16a1 1 0 0 0-1 1v2h2v-2a1 1 0 0 0-1-1ZM4 13a1 1 0 0 0 1-1V10H3v2a1 1 0 0 0 1 1Zm16 0a1 1 0 0 0 1-1V10h-2v2a1 1 0 0 0 1 1ZM6.34 6.34l1.42-1.42L6.34 3.5 4.93 4.93l1.41 1.41Zm11.32 11.32 1.41 1.41 1.42-1.41-1.42-1.42-1.41 1.42Zm0-11.32 1.41-1.41-1.41-1.42-1.42 1.42 1.42 1.41ZM6.34 17.66 4.93 19.07l1.41 1.42 1.42-1.42-1.42-1.41ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"/>
+    </svg>
+
+    <svg class="icon moon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79Z"/>
+    </svg>
+    <span class="sr-only">Đổi giao diện</span>
+  </button>
+
   <div class="container">
+    <nav class="sponsor-bar" aria-label="Đồng hành">
+      <div class="sponsor-wrap" style="background: white;">
+        <!-- <span class="sponsor-label">Đồng hành</span> -->
+    
+        <div class="sponsor-logos" style="justify-content: space-between;">
+          <a class="sponsor chip is-round" href="#" aria-label="PTIT.AI">
+            <img src="assets/imgs/aiptit-Photoroom.png" alt="PTIT.AI">
+            <!-- <span class="cap">PTIT.AI</span> -->
+          </a>
+    
+          <a class="sponsor chip" href="#" aria-label="APSIPA ASC 2025">
+            <img src="assets/imgs/apsia-Photoroom.png" alt="APSIPA ASC 2025">
+            <!-- <span class="cap">APSIPA ASC 2025</span> -->
+          </a>
+        </div>
+      </div>
+    </nav>
     <header class="hero">
       <div>
         <h1 class="title">AI for Earth Workshop 2025</h1>
@@ -44,7 +76,7 @@
     </header>
 
     <!-- SPEAKERS -->
-    <section id="speakers" class="section">
+    <section id="speakers" class="section" style="margin-top: 5%;">
       <h2>Diễn giả</h2>
     
       <!-- Slider wrapper -->
@@ -54,16 +86,34 @@
           <!-- Slide 1 -->
           <div class="swiper-slide">
             <article class="card">
-              <div class="photo"><img src="assets/imgs/prof1.JPG" alt="Ảnh Prof. Duc-Tan Tran"></div>
+              <a class="photo bio-trigger"
+                 href="#"
+                 data-name="Prof. Duc-Tan Tran"
+                 data-role="Keynote • Phenikaa University"
+                 data-img="assets/imgs/prof1.JPG"
+                 data-bio='
+                   <p><strong>Duc-Tan Tran</strong> is currently a <strong>Professor and Dean</strong> at the Faculty of Electrical and Electronic Engineering, <strong>Phenikaa University</strong>. Prior to joining Phenikaa University, he was an <strong>Associate Professor</strong> at the Faculty of Electronics and Telecommunication, <strong>VNU University of Engineering and Technology (VNU-UET)</strong>, and served as <strong>Vice Dean</strong> from <em>Aug 2016 – May 2019</em>.</p>
+                   <p>He has authored <strong>150+ research papers</strong> and received multiple distinctions, including:</p>
+                   <ul>
+                     <li><em>Best Paper Award</em> at the 9th International Conference on Multimedia and Ubiquitous Engineering (<strong>MUE-2015</strong>);</li>
+                     <li><em>Best Paper Award</em> at the International Conference on Green and Human Information Technology (<strong>ICGHIT-2015</strong>);</li>
+                     <li><em>Excellent Young Researcher</em> (2008) by <strong>Vietnam National University, Hanoi</strong>;</li>
+                     <li>Third prize in the <strong>"Vietnamese Talents"</strong> contest.</li>
+                   </ul>
+                   <p><strong>Research interests</strong>: representation, processing, analysis, and communication of information embedded in signals and datasets.</p>
+                   <p>Prof. Tran actively serves the community as <strong>TPC Co-chair</strong>, <strong>technical program committee member</strong>, <strong>track chair</strong>, <strong>session chair</strong>, and <strong>reviewer</strong> for various international conferences and journals.</p>
+                 '>
+                <img src="assets/imgs/prof1.JPG" alt="Ảnh Prof. Duc-Tan Tran">
+              </a>
+            
               <div class="body">
                 <div class="role">Keynote • Phenikaa University</div>
                 <div class="name">Prof. Duc-Tan Tran</div>
-                <p class="note">Professor & Dean, Faculty of Electrical and Electronic Engineering, Phenikaa University. Former Associate Professor, VNU-UET.</p>
-                <div class="tags"><span class="tag">Signal Processing</span><span class="tag">Information Theory</span><span class="tag">Multimedia</span></div>
-                <div class="social">
-                  <a href="#modal-tan">🔎 Bio</a>
-                  <a href="mailto:tan@example.edu">✉️ Email</a>
-                  <a href="https://scholar.google.com" target="_blank" rel="noopener">🎓 Scholar</a>
+                <p class="note">Professor & Dean…</p>
+                <div class="tags">
+                  <span class="tag">Signal Processing</span>
+                  <span class="tag">Information Theory</span>
+                  <span class="tag">Multimedia</span>
                 </div>
               </div>
             </article>
@@ -72,13 +122,35 @@
           <!-- Slide 2 -->
           <div class="swiper-slide">
             <article class="card">
-              <div class="photo"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop" alt="Ảnh Speaker 2"></div>
+              <a class="photo bio-trigger"
+                 href="#"
+                 data-name="Prof. Duc-Tan Tran"
+                 data-role="Keynote • Phenikaa University"
+                 data-img="assets/imgs/prof1.JPG"
+                 data-bio='
+                   <p><strong>Duc-Tan Tran</strong> is currently a <strong>Professor and Dean</strong> at the Faculty of Electrical and Electronic Engineering, <strong>Phenikaa University</strong>. Prior to joining Phenikaa University, he was an <strong>Associate Professor</strong> at the Faculty of Electronics and Telecommunication, <strong>VNU University of Engineering and Technology (VNU-UET)</strong>, and served as <strong>Vice Dean</strong> from <em>Aug 2016 – May 2019</em>.</p>
+                   <p>He has authored <strong>150+ research papers</strong> and received multiple distinctions, including:</p>
+                   <ul>
+                     <li><em>Best Paper Award</em> at the 9th International Conference on Multimedia and Ubiquitous Engineering (<strong>MUE-2015</strong>);</li>
+                     <li><em>Best Paper Award</em> at the International Conference on Green and Human Information Technology (<strong>ICGHIT-2015</strong>);</li>
+                     <li><em>Excellent Young Researcher</em> (2008) by <strong>Vietnam National University, Hanoi</strong>;</li>
+                     <li>Third prize in the <strong>"Vietnamese Talents"</strong> contest.</li>
+                   </ul>
+                   <p><strong>Research interests</strong>: representation, processing, analysis, and communication of information embedded in signals and datasets.</p>
+                   <p>Prof. Tran actively serves the community as <strong>TPC Co-chair</strong>, <strong>technical program committee member</strong>, <strong>track chair</strong>, <strong>session chair</strong>, and <strong>reviewer</strong> for various international conferences and journals.</p>
+                 '>
+                <img src="assets/imgs/prof1.JPG" alt="Ảnh Prof. Duc-Tan Tran">
+              </a>
+            
               <div class="body">
-                <div class="role">Invited Talk • Tổ chức Y</div>
-                <div class="name">Dr. Speaker Two</div>
-                <p class="note">Mô tả ngắn 1–2 câu về chuyên môn và mối quan tâm.</p>
-                <div class="tags"><span class="tag">Nowcasting</span><span class="tag">Data Fusion</span></div>
-                <div class="social"><a href="#modal-s2">🔎 Bio</a></div>
+                <div class="role">Keynote • Phenikaa University</div>
+                <div class="name">Prof. Duc-Tan Tran</div>
+                <p class="note">Professor & Dean…</p>
+                <div class="tags">
+                  <span class="tag">Signal Processing</span>
+                  <span class="tag">Information Theory</span>
+                  <span class="tag">Multimedia</span>
+                </div>
               </div>
             </article>
           </div>
@@ -86,13 +158,35 @@
           <!-- Slide 3 -->
           <div class="swiper-slide">
             <article class="card">
-              <div class="photo"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop" alt="Ảnh Speaker 3"></div>
+              <a class="photo bio-trigger"
+                 href="#"
+                 data-name="Prof. Duc-Tan Tran"
+                 data-role="Keynote • Phenikaa University"
+                 data-img="assets/imgs/prof1.JPG"
+                 data-bio='
+                   <p><strong>Duc-Tan Tran</strong> is currently a <strong>Professor and Dean</strong> at the Faculty of Electrical and Electronic Engineering, <strong>Phenikaa University</strong>. Prior to joining Phenikaa University, he was an <strong>Associate Professor</strong> at the Faculty of Electronics and Telecommunication, <strong>VNU University of Engineering and Technology (VNU-UET)</strong>, and served as <strong>Vice Dean</strong> from <em>Aug 2016 – May 2019</em>.</p>
+                   <p>He has authored <strong>150+ research papers</strong> and received multiple distinctions, including:</p>
+                   <ul>
+                     <li><em>Best Paper Award</em> at the 9th International Conference on Multimedia and Ubiquitous Engineering (<strong>MUE-2015</strong>);</li>
+                     <li><em>Best Paper Award</em> at the International Conference on Green and Human Information Technology (<strong>ICGHIT-2015</strong>);</li>
+                     <li><em>Excellent Young Researcher</em> (2008) by <strong>Vietnam National University, Hanoi</strong>;</li>
+                     <li>Third prize in the <strong>"Vietnamese Talents"</strong> contest.</li>
+                   </ul>
+                   <p><strong>Research interests</strong>: representation, processing, analysis, and communication of information embedded in signals and datasets.</p>
+                   <p>Prof. Tran actively serves the community as <strong>TPC Co-chair</strong>, <strong>technical program committee member</strong>, <strong>track chair</strong>, <strong>session chair</strong>, and <strong>reviewer</strong> for various international conferences and journals.</p>
+                 '>
+                <img src="assets/imgs/prof1.JPG" alt="Ảnh Prof. Duc-Tan Tran">
+              </a>
+            
               <div class="body">
-                <div class="role">Panel • Company Z</div>
-                <div class="name">Ms. Speaker Three</div>
-                <p class="note">MLOps & realtime triển khai quy mô lớn.</p>
-                <div class="tags"><span class="tag">MLOps</span><span class="tag">Realtime</span></div>
-                <div class="social"><a href="#modal-s3">🔎 Bio</a></div>
+                <div class="role">Keynote • Phenikaa University</div>
+                <div class="name">Prof. Duc-Tan Tran</div>
+                <p class="note">Professor & Dean…</p>
+                <div class="tags">
+                  <span class="tag">Signal Processing</span>
+                  <span class="tag">Information Theory</span>
+                  <span class="tag">Multimedia</span>
+                </div>
               </div>
             </article>
           </div>
@@ -100,12 +194,35 @@
           <!-- Slide 4 -->
           <div class="swiper-slide">
             <article class="card">
-              <div class="photo"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop" alt="Ảnh Speaker 4"></div>
+              <a class="photo bio-trigger"
+                 href="#"
+                 data-name="Prof. Duc-Tan Tran"
+                 data-role="Keynote • Phenikaa University"
+                 data-img="assets/imgs/prof1.JPG"
+                 data-bio='
+                   <p><strong>Duc-Tan Tran</strong> is currently a <strong>Professor and Dean</strong> at the Faculty of Electrical and Electronic Engineering, <strong>Phenikaa University</strong>. Prior to joining Phenikaa University, he was an <strong>Associate Professor</strong> at the Faculty of Electronics and Telecommunication, <strong>VNU University of Engineering and Technology (VNU-UET)</strong>, and served as <strong>Vice Dean</strong> from <em>Aug 2016 – May 2019</em>.</p>
+                   <p>He has authored <strong>150+ research papers</strong> and received multiple distinctions, including:</p>
+                   <ul>
+                     <li><em>Best Paper Award</em> at the 9th International Conference on Multimedia and Ubiquitous Engineering (<strong>MUE-2015</strong>);</li>
+                     <li><em>Best Paper Award</em> at the International Conference on Green and Human Information Technology (<strong>ICGHIT-2015</strong>);</li>
+                     <li><em>Excellent Young Researcher</em> (2008) by <strong>Vietnam National University, Hanoi</strong>;</li>
+                     <li>Third prize in the <strong>"Vietnamese Talents"</strong> contest.</li>
+                   </ul>
+                   <p><strong>Research interests</strong>: representation, processing, analysis, and communication of information embedded in signals and datasets.</p>
+                   <p>Prof. Tran actively serves the community as <strong>TPC Co-chair</strong>, <strong>technical program committee member</strong>, <strong>track chair</strong>, <strong>session chair</strong>, and <strong>reviewer</strong> for various international conferences and journals.</p>
+                 '>
+                <img src="assets/imgs/prof1.JPG" alt="Ảnh Prof. Duc-Tan Tran">
+              </a>
+            
               <div class="body">
-                <div class="role">Invited Talk • Lab A</div>
-                <div class="name">Dr. Speaker Four</div>
-                <p class="note">Chuyên về assimilation & quan trắc.</p>
-                <div class="tags"><span class="tag">Assimilation</span></div>
+                <div class="role">Keynote • Phenikaa University</div>
+                <div class="name">Prof. Duc-Tan Tran</div>
+                <p class="note">Professor & Dean…</p>
+                <div class="tags">
+                  <span class="tag">Signal Processing</span>
+                  <span class="tag">Information Theory</span>
+                  <span class="tag">Multimedia</span>
+                </div>
               </div>
             </article>
           </div>
@@ -113,12 +230,35 @@
           <!-- Slide 5 -->
           <div class="swiper-slide">
             <article class="card">
-              <div class="photo"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=1200&auto=format&fit=crop" alt="Ảnh Speaker 5"></div>
+              <a class="photo bio-trigger"
+                 href="#"
+                 data-name="Prof. Duc-Tan Tran"
+                 data-role="Keynote • Phenikaa University"
+                 data-img="assets/imgs/prof1.JPG"
+                 data-bio='
+                   <p><strong>Duc-Tan Tran</strong> is currently a <strong>Professor and Dean</strong> at the Faculty of Electrical and Electronic Engineering, <strong>Phenikaa University</strong>. Prior to joining Phenikaa University, he was an <strong>Associate Professor</strong> at the Faculty of Electronics and Telecommunication, <strong>VNU University of Engineering and Technology (VNU-UET)</strong>, and served as <strong>Vice Dean</strong> from <em>Aug 2016 – May 2019</em>.</p>
+                   <p>He has authored <strong>150+ research papers</strong> and received multiple distinctions, including:</p>
+                   <ul>
+                     <li><em>Best Paper Award</em> at the 9th International Conference on Multimedia and Ubiquitous Engineering (<strong>MUE-2015</strong>);</li>
+                     <li><em>Best Paper Award</em> at the International Conference on Green and Human Information Technology (<strong>ICGHIT-2015</strong>);</li>
+                     <li><em>Excellent Young Researcher</em> (2008) by <strong>Vietnam National University, Hanoi</strong>;</li>
+                     <li>Third prize in the <strong>"Vietnamese Talents"</strong> contest.</li>
+                   </ul>
+                   <p><strong>Research interests</strong>: representation, processing, analysis, and communication of information embedded in signals and datasets.</p>
+                   <p>Prof. Tran actively serves the community as <strong>TPC Co-chair</strong>, <strong>technical program committee member</strong>, <strong>track chair</strong>, <strong>session chair</strong>, and <strong>reviewer</strong> for various international conferences and journals.</p>
+                 '>
+                <img src="assets/imgs/prof1.JPG" alt="Ảnh Prof. Duc-Tan Tran">
+              </a>
+            
               <div class="body">
-                <div class="role">Industry Talk • WeatherTech</div>
-                <div class="name">Mr. Speaker Five</div>
-                <p class="note">Hệ thống realtime & tối ưu chi phí.</p>
-                <div class="tags"><span class="tag">Infra</span><span class="tag">Ops</span></div>
+                <div class="role">Keynote • Phenikaa University</div>
+                <div class="name">Prof. Duc-Tan Tran</div>
+                <p class="note">Professor & Dean…</p>
+                <div class="tags">
+                  <span class="tag">Signal Processing</span>
+                  <span class="tag">Information Theory</span>
+                  <span class="tag">Multimedia</span>
+                </div>
               </div>
             </article>
           </div>
@@ -131,9 +271,8 @@
         <div class="swiper-pagination" aria-label="Chỉ báo trang"></div>
       </div>
     </section>
-
-    <!-- SCHEDULE (giữ mẫu) -->
-    <section id="schedule" class="section">
+    <!-- schedule -->
+    <section id="schedule" class="section" style="margin-top: 5%;">
       <h2>Lịch trình</h2>
       <div class="timeline">
         <div class="t"><div class="time">08:30–09:00</div><div class="what"><div class="talk">Đăng ký & Chào mừng</div><div class="who">BTC Workshop</div></div></div>
@@ -168,7 +307,7 @@
   </div>
 
   <!-- MODALS: BIO CHI TIẾT -->
-  <div class="modal" id="modal-tan">
+  <!-- <div class="modal" id="modal-tan">
     <div class="sheet">
       <div class="head"><strong>Prof. Duc‑Tan Tran — Tiểu sử</strong><a class="close" href="#speakers">Đóng ✕</a></div>
       <div class="content">
@@ -184,7 +323,7 @@
         <p>Prof. Tran actively serves the community as <strong>TPC Co‑chair</strong>, <strong>technical program committee member</strong>, <strong>track chair</strong>, <strong>session chair</strong>, and <strong>reviewer</strong> for various international conferences and journals.</p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="modal" id="modal-s2">
     <div class="sheet">
@@ -203,6 +342,19 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const root = document.documentElement;
+    root.dataset.theme = 'light';
+    localStorage.setItem('theme','light'); 
+  
+    document.getElementById('themeToggle').onclick = () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    };
+  </script>
+  <!-- <script src="vendor/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   const sp = new Swiper('.speakers-swiper', {
@@ -231,7 +383,95 @@
     }
   });
 </script>
+<div class="x-modal" id="bioModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="x-overlay" data-close></div>
 
+  <div class="x-sheet" role="document" tabindex="-1">
+    <button class="x-close" type="button" aria-label="Đóng" title="Đóng" data-close>✕</button>
+
+    <div class="x-grid">
+      <div class="x-left">
+        <img id="xImg" alt="" />
+      </div>
+      <div class="x-right">
+        <div class="x-role" id="xRole"></div>
+        <h3 class="x-name" id="xName"></h3>
+        <div class="x-bio" id="xBio"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+
+  if (window.Swiper) {
+
+// preventClicks:false, preventClicksPropagation:false
+}
+
+
+const modal   = document.getElementById('bioModal');
+const xImg    = document.getElementById('xImg');
+const xName   = document.getElementById('xName');
+const xRole   = document.getElementById('xRole');
+const xBio    = document.getElementById('xBio');
+let lastFocus = null;
+
+function openModal(data){
+lastFocus = document.activeElement;
+xImg.src = data.img || '';
+xImg.alt = data.name ? ('Ảnh ' + data.name) : '';
+xName.textContent = data.name || '';
+xRole.textContent = data.role || '';
+xBio.innerHTML = data.bio || '';
+document.body.style.overflow = 'hidden';
+modal.setAttribute('aria-hidden','false');
+modal.querySelector('.x-sheet').focus({preventScroll:true});
+}
+
+function closeModal(){
+modal.setAttribute('aria-hidden','true');
+document.body.style.overflow = '';
+if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+}
+
+
+document.addEventListener('click', (e)=>{
+const trigger = e.target.closest('.bio-trigger');
+if (!trigger) return;
+e.preventDefault();
+const data = {
+  name: trigger.dataset.name,
+  role: trigger.dataset.role,
+  img : trigger.dataset.img,
+  bio : trigger.dataset.bio
+};
+openModal(data);
+});
+
+
+modal.addEventListener('click', (e)=>{
+if (e.target.hasAttribute('data-close')) closeModal();
+});
+
+
+document.addEventListener('keydown', (e)=>{
+if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+});
+
+
+const io = new IntersectionObserver((ents)=>{
+ents.forEach(ent=>{
+  if (ent.isIntersecting) ent.target.classList.add('is-in');
+});
+}, {threshold: .12});
+document.querySelectorAll('.card, .hero, .section h2').forEach(el=>{
+el.classList.add('reveal'); io.observe(el);
+});
+
+
+</script>
 </body>
 <script src="assets/js/script.js"></script>
 </html>
