@@ -9,7 +9,7 @@ const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
 root.dataset.theme = next;
 localStorage.setItem('theme', next);
 };
-aaaaaaaa
+aaaaaaaaádasdasdasd
 */
 
 const root = document.documentElement;
