@@ -41,30 +41,25 @@
   <div class="container">
     <nav class="sponsor-bar" aria-label="Đồng hành">
       <div class="sponsor-wrap" style="background: white;">
-        <div class="sponsor-logos" style="display: flex; justify-content: center; align-items: center; gap: 50px;">
-          
-          <!-- PTIT.AI -->
-          <a class="sponsor chip is-round" href="#" aria-label="PTIT.AI">
-            <img src="assets/imgs/aiptit-Photoroom.png" alt="PTIT.AI" style="height: 120px;">
+        <div class="sponsor-logos">
+          <a class="sponsor" href="#" aria-label="PTIT.AI">
+            <img src="assets/imgs/aiptit-Photoroom.png" alt="PTIT.AI" loading="lazy">
           </a>
-      
-          <!-- APSIPA (centered) -->
-          <a class="sponsor chip" href="#" aria-label="APSIPA ASC 2025">
-            <img src="assets/imgs/apsia-Photoroom.png" alt="APSIPA ASC 2025" style="height: 90px;">
+    
+          <a class="sponsor" href="#" aria-label="APSIPA ASC 2025">
+            <img src="assets/imgs/apsia-Photoroom.png" alt="APSIPA ASC 2025" loading="lazy">
           </a>
-      
-          <!-- Van Lang University -->
-          <a class="sponsor chip" href="#" aria-label="Van Lang University">
-            <img src="assets/imgs/vanLang_logo.jpg" alt="Van Lang University" style="height: 60px;">
+    
+          <a class="sponsor" href="#" aria-label="Van Lang University">
+            <img src="assets/imgs/vanLang_logo.jpg" alt="Van Lang University" loading="lazy">
           </a>
-      
         </div>
       </div>
-      
     </nav>
+    
     <header class="hero">
       <div>
-        <h1 class="title">Three Minute Thesis (3MT) Competition - APSIPA ASC 2025 - Vietnam Chapter</h1>
+        <h2 class="title">Three Minute Thesis (3MT) Competition - APSIPA ASC 2025 - Vietnam Chapter</h2>
         <p class="subtitle">Celebrating graduate students’ ability to communicate their research clearly and concisely in three minutes.</p>
         <div class="chips">
           <span class="chip">Hanoi — 26/09/2025</span>
@@ -101,7 +96,7 @@
 
     <!-- SPEAKERS -->
     <section id="speakers" class="section" style="margin-top: 5%;">
-      <h2>Judging Panel & Speakers</h2>
+      <h2>Judging Panel & General Chair</h2>
     
       <!-- Slider wrapper -->
       <div class="swiper speakers-swiper">
@@ -138,7 +133,10 @@
             
               <div class="body">
                 <div class="role">Post and Telecommunications Institute of Technology</div>
-                <div class="name">Dr. Do Thanh Ha</div>
+                <div class="name">Dr. Do Thanh Ha
+
+                  <span class="role-badge role-jury" aria-label="Role: Jury">Jury</span>
+                </div>
                 <p class="note">AI Expert • Specialist in Computer Vision and AI Applications</p>
                 <div class="tags">
                   <span class="tag">Medical Imaging</span>
@@ -171,7 +169,10 @@
             
               <div class="body">
                 <div class="role">Postdoctoral Researcher • VUB</div>
-                <div class="name">Dr. Stijn Denissen</div>
+                <div class="name">Dr. Stijn Denissen
+
+                  <span class="role-badge role-jury" aria-label="Role: Jury">Jury</span>
+                </div>
                 <p class="note">Researcher in AI for medical imaging and neuroscience</p>
                 <div class="tags">
                   <span class="tag">Neurorehabilitation</span>
@@ -215,7 +216,8 @@
             
               <div class="body">
                 <div class="role">Phenikaa University</div>
-                <div class="name"><strong>Prof. Duc-Tan Tran</strong></div>
+                <div class="name"><strong>Prof. Duc-Tan Tran</strong>
+                <span class="role-badge role-jury" aria-label="Role: Jury">Jury</span></div>
                 <p class="note">Professor and Dean, Faculty of Electrical and Electronic Engineering</p>
                 <div class="tags">
                   <span class="tag">Signal Processing</span>
@@ -275,7 +277,9 @@
 
               <div class="body">
                 <div class="role">Van Lang University</div>
-                <div class="name"><strong>Prof. Vo Nguyen Quoc Bao</strong></div>
+                <div class="name"><strong>Prof. Vo Nguyen Quoc Bao</strong>
+                  <span class="role-badge role-gc" aria-label="General Chair" title="General Chair">GC</span>
+                </div>
                 <p class="note">Full Professor, Wireless Communications</p>
                 <div class="tags">
                   <span class="tag">Wireless Communications</span>
@@ -307,7 +311,9 @@
             
               <div class="body">
                 <div class="role">University of Engineering and Technology, VNU</div>
-                <div class="name"><strong>Assoc. Prof. Nguyen Linh Trung</strong></div>
+                <div class="name"><strong style="font-size: 16px;">Assoc. Prof. Nguyen Linh Trung</strong>
+                  <span class="role-badge role-gc" aria-label="General Chair" title="General Chair">GC</span>
+                </div>
                 <p class="note">Faculty of Electronics and Telecommunications</p>
                 <div class="tags">
                   <span class="tag">Signal Processing</span>
@@ -589,7 +595,7 @@ el.classList.add('reveal'); io.observe(el);
 <script>
   const sp = new Swiper('.speakers-swiper', {
     loop:true, spaceBetween:18,
-    autoplay:{ delay:3500, disableOnInteraction:false },
+    autoplay:{ delay:2500, disableOnInteraction:false },
     keyboard:{ enabled:true }, a11y:{ enabled:true },
     pagination:{ el:'.speakers-swiper .swiper-pagination', clickable:true },
     navigation:{ nextEl:'.speakers-swiper .swiper-button-next', prevEl:'.speakers-swiper .swiper-button-prev' },
@@ -611,7 +617,63 @@ el.classList.add('reveal'); io.observe(el);
     });
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tl = document.querySelector('.timeline');
+    const items = document.querySelectorAll('.timeline .t');
+    if (!tl || !items.length) return;
+  
+    // Bật chế độ có animation
+    document.body.classList.add('anim');
+  
+    // đặt biến stagger cho từng item
+    items.forEach((el, i) => el.style.setProperty('--stagger', i));
+  
+    // Observer vẽ line khi container vào màn hình
+    const lineObs = new IntersectionObserver((ents) => {
+      ents.forEach(ent => {
+        if (ent.isIntersecting) {
+          tl.classList.add('line-in');
+          lineObs.unobserve(tl);
+        }
+      });
+    }, { threshold: .15 });
+    lineObs.observe(tl);
+  
+    // Observer cho từng item
+    const itemObs = new IntersectionObserver((ents) => {
+      ents.forEach(ent => {
+        if (ent.isIntersecting) {
+          ent.target.classList.add('in');
+          itemObs.unobserve(ent.target);
+        }
+      });
+    }, { threshold: .18, rootMargin: '0px 0px -10% 0px' });
+  
+    items.forEach(el => itemObs.observe(el));
+  });
+  </script>
+<script>
+  (() => {
+    const tl = document.querySelector('.timeline');
+    if (!tl) return;
+    const items = [...tl.querySelectorAll('.t')];
+    const beat = parseFloat(getComputedStyle(tl).getPropertyValue('--beat')) || 0.9; 
+    const dur  = Math.max(6, (items.length + 1) * beat); 
+    tl.style.setProperty('--dur', dur + 's');
+  
 
+    items.forEach((el, i) => el.style.setProperty('--delay', (i * beat) + 's'));
+  
+
+    const io = new IntersectionObserver((ents)=>{
+      if (ents[0].isIntersecting) tl.classList.add('flow');
+    }, {threshold:.2});
+    io.observe(tl);
+  })();
+  </script>
+  
+  
 </body>
 <script src="assets/js/script.js"></script>
 </html>
