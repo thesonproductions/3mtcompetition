@@ -84,3 +84,6 @@ html[data-theme="light"] .sponsor.chip{
 html[data-theme="dark"]  .sponsor .cap{ color: #b8c6de; }
 html[data-theme="light"] .sponsor .cap{ color: #3b4a63; }
 
+/* Float nhẹ khi hover từng logo */
+.sponsor img{ transition: transform .22s ease, filter .22s ease; }
+.sponsor:hover img{ transform: translateY(-3px) scale(1.02); filter: drop-shadow(0 6px 18px rgba(0,0,0,.24)); }

@@ -4,7 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>APSIPA Vietnam 3MT 2025</title>
-  <meta name="description" content="Trang giới thiệu diễn giả (tĩnh, 1 file)">
+
+  <link rel="icon" href="assets/imgs/aiptit.jpg" sizes="32x32">
+  <link rel="icon" href="assets/imgs/aiptit.jpg" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/imgs/aiptit.jpg">
+  
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Open Graph / Twitter (chia sẻ đẹp) -->
+  <meta property="og:title" content="APSIPA Vietnam 3MT 2025 — Jury Panel & Speakers">
+  <meta property="og:description" content="Judging panel & speakers for APSIPA Vietnam 3MT Competition 2025.">
+  <meta property="og:image" content="assets/imgs/apsia.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/sponsors.css">
   <link rel="stylesheet" href="assets/css/another.css">
@@ -59,7 +73,7 @@
         </div>
         <div class="cta">
           <a class="btn" href="#register">Register</a>
-          <a class="btn secondary" href="#jury">Meet the Jury Panel</a>
+          <a class="btn secondary" href="#speakers">Meet the Jury Panel</a>
 
         </div>
       </div>
@@ -395,12 +409,14 @@
       </div>
       
 
-
-    <footer>
-      © 2025 APSIPA Vietnam 3MT Competition • 
-      <a href="#">Policy</a> • 
-      <a href="#">Contact</a>
-    </footer>
+      </section>
+      <footer class="site-footer">
+        <div class="inner">
+          © 2025 APSIPA Vietnam 3MT Competition • 
+          <a href="#">Policy</a> • 
+          <a href="#">Contact</a>
+        </div>
+      </footer>
   </div>
 
   <!-- MODALS: BIO CHI TIẾT -->
@@ -422,7 +438,7 @@
     </div>
   </div> -->
 
-  <div class="modal" id="modal-s2">
+  <!-- <div class="modal" id="modal-s2">
     <div class="sheet">
       <div class="head"><strong>Dr. Speaker Two — Tiểu sử</strong><a class="close" href="#speakers">Đóng ✕</a></div>
       <div class="content">
@@ -438,7 +454,7 @@
         <p>⚠️ Ghi nội dung thật của diễn giả 3 tại đây: trọng tâm MLOps, hạ tầng realtime, các dự án tiêu biểu và liên hệ.</p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <script>
     const root = document.documentElement;
@@ -453,8 +469,8 @@
   </script>
   <!-- <script src="vendor/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  const sp = new Swiper('.speakers-swiper', {
+<!-- <script>
+    const aap = new Swiper('.speakers-swiper', {
     loop: true,
     spaceBetween: 18,
     autoplay: {
@@ -479,7 +495,7 @@
       900: { slidesPerView: 3 }
     }
   });
-</script>
+</script> -->
 <div class="x-modal" id="bioModal" aria-hidden="true" role="dialog" aria-modal="true">
   <div class="x-overlay" data-close></div>
 
@@ -569,6 +585,33 @@ el.classList.add('reveal'); io.observe(el);
 
 
 </script>
+
+<script>
+  const sp = new Swiper('.speakers-swiper', {
+    loop:true, spaceBetween:18,
+    autoplay:{ delay:3500, disableOnInteraction:false },
+    keyboard:{ enabled:true }, a11y:{ enabled:true },
+    pagination:{ el:'.speakers-swiper .swiper-pagination', clickable:true },
+    navigation:{ nextEl:'.speakers-swiper .swiper-button-next', prevEl:'.speakers-swiper .swiper-button-prev' },
+    slidesPerView:3,
+    breakpoints:{ 0:{slidesPerView:1}, 640:{slidesPerView:2}, 900:{slidesPerView:3} }
+  });
+
+  // Pause khi người dùng hover vào slider
+  const sliderEl = document.querySelector('.speakers-swiper');
+  sliderEl.addEventListener('mouseenter', ()=> sp.autoplay.stop());
+  sliderEl.addEventListener('mouseleave', ()=> sp.autoplay.start());
+
+  // Cập nhật “highlight” trong card .photo theo vị trí chuột (cho tilt light)
+  document.addEventListener('mousemove', e=>{
+    document.querySelectorAll('.card .photo').forEach(ph=>{
+      const r = ph.getBoundingClientRect();
+      ph.style.setProperty('--mx', ((e.clientX - r.left) / r.width)*100 + '%');
+      ph.style.setProperty('--my', ((e.clientY - r.top ) / r.height)*100 + '%');
+    });
+  });
+</script>
+
 </body>
 <script src="assets/js/script.js"></script>
 </html>
