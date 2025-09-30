@@ -432,3 +432,40 @@ section#winners .w-banner.tight img{
   .w-banner.tight::before{ transition: none; animation: none; }
   .w-banner.tight:hover img{ transform:none; filter:none; }
 }
+
+/* ==== SCROLL REVEAL cho #winners ==== */
+/* ==== SCROLL REVEAL: bật khi #winners vào viewport ==== */
+#winners .w-banner.tight,
+#winners .winner-card,
+#winners h2{
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(4px);
+  transition:
+    opacity .72s ease,
+    transform .72s ease,
+    filter .72s ease;
+  will-change: opacity, transform, filter;
+}
+
+/* Khi cả section vào màn hình -> hiện tất cả con */
+#winners.is-in .w-banner.tight,
+#winners.is-in .winner-card,
+#winners.is-in h2{
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Nếu đã bật layout ảnh-trái thẻ-phải, KHÔNG dùng sticky lúc reveal */
+section#winners .w-banner.tight{ position: static; }  /* tránh case cao độ = 0 */
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  #winners .w-banner.tight,
+  #winners .winner-card,
+  #winners h2{
+    transition: none;
+    opacity: 1; transform: none; filter: none;
+  }
+}

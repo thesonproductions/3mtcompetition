@@ -718,7 +718,22 @@ Research expertise: neurorehabilitation, neuroscience, medical imaging (MRI), ap
             io.observe(tl);
         })();
     </script>
-
+<script>
+    (function(){
+      const sec = document.getElementById('winners');
+      if(!sec) return;
+  
+      const io = new IntersectionObserver((entries, obs) => {
+        if(entries[0].isIntersecting){
+          sec.classList.add('is-in');   // hiện toàn bộ
+          obs.disconnect();             // chỉ hiện 1 lần
+        }
+      }, { threshold: .15, rootMargin: '0px 0px -10% 0px' });
+  
+      io.observe(sec);
+    })();
+  </script>
+  
 </body>
 <script src="assets/js/script.js"></script>
 
